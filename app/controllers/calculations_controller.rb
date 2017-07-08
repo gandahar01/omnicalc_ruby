@@ -3,6 +3,7 @@ class CalculationsController < ApplicationController
   def word_count
     @text = params[:user_text]
     @special_word = params[:user_word]
+    
 
     # ================================================================================
     # Your code goes below.
@@ -11,13 +12,13 @@ class CalculationsController < ApplicationController
     # ================================================================================
 
 
-    @word_count = "Replace this string with your answer."
+    @word_count = @text.split.count
 
-    @character_count_with_spaces = "Replace this string with your answer."
+    @character_count_with_spaces = @text.length
 
-    @character_count_without_spaces = "Replace this string with your answer."
+    @character_count_without_spaces = @text.gsub(/\s+/, "").length
 
-    @occurrences = "Replace this string with your answer."
+    @occurrences = @text.downcase.scan(/(?=#{@special_word})/).count
 
     # ================================================================================
     # Your code goes above.
@@ -30,6 +31,10 @@ class CalculationsController < ApplicationController
     @apr = params[:annual_percentage_rate].to_f
     @years = params[:number_of_years].to_i
     @principal = params[:principal_value].to_f
+    @rate = (@apr/1200)
+    @term = (@years*12)
+    @n = (@rate*@principal)
+    @d = 1 - ((1 + @rate)**-@term)
 
     # ================================================================================
     # Your code goes below.
@@ -38,7 +43,7 @@ class CalculationsController < ApplicationController
     # The principal value the user input is in the decimal @principal.
     # ================================================================================
 
-    @monthly_payment = "Replace this string with your answer."
+    @monthly_payment = @n/@d
 
     # ================================================================================
     # Your code goes above.
@@ -82,27 +87,27 @@ class CalculationsController < ApplicationController
     # The numbers the user input are in the array @numbers.
     # ================================================================================
 
-    @sorted_numbers = "Replace this string with your answer."
+    @sorted_numbers = @numbers.partition{|x| x.is_a? String}.map(&:sort).flatten
 
-    @count = "Replace this string with your answer."
+    @count = @numbers.count
 
-    @minimum = "Replace this string with your answer."
+    @minimum = @numbers.min
 
-    @maximum = "Replace this string with your answer."
+    @maximum = @numbers.max
 
-    @range = "Replace this string with your answer."
+    @range = @numbers.range
 
-    @median = "Replace this string with your answer."
+    @median = @numbers.median
+    
+    @sum = @numbers.sum
 
-    @sum = "Replace this string with your answer."
+    @mean = @numbers.mean
 
-    @mean = "Replace this string with your answer."
+    @variance = @numbers.variance
 
-    @variance = "Replace this string with your answer."
+    @standard_deviation = @numbers.standard_deviation
 
-    @standard_deviation = "Replace this string with your answer."
-
-    @mode = "Replace this string with your answer."
+    @mode = @numbers.mode
 
     # ================================================================================
     # Your code goes above.
