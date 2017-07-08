@@ -69,9 +69,9 @@ class CalculationsController < ApplicationController
     @seconds = @seconds_diff
     @minutes = @seconds_diff / 60
     @hours = @seconds_diff / 3600
-    @days = (@seconds_diff / 3600) * 24
-    @weeks = ((@seconds_diff / 3600) * 24)*7
-    @years = (((@seconds_diff / 3600) * 24)*7)*52
+    @days = (@seconds_diff / 3600) / 24
+    @weeks = ((@seconds_diff / 3600) / 24) / 7
+    @years = (((@seconds_diff / 3600) / 24) / 7)/52
 
     # ================================================================================
     # Your code goes above.
