@@ -87,27 +87,27 @@ class CalculationsController < ApplicationController
     # The numbers the user input are in the array @numbers.
     # ================================================================================
 
-    @sorted_numbers = "Replace this string with your answer."
+    @sorted_numbers = @numbers.partition{|x| x.is_a? String}.map(&:sort).flatten
 
-    @count = "Replace this string with your answer."
+    @count = @numbers.count
 
-    @minimum = "Replace this string with your answer."
+    @minimum = @numbers.min
 
-    @maximum = "Replace this string with your answer."
+    @maximum = @numbers.max
 
-    @range = "Replace this string with your answer."
+    @range = @numbers.range
 
-    @median = "Replace this string with your answer."
+    @median = @numbers.median
+    
+    @sum = @numbers.sum
 
-    @sum = "Replace this string with your answer."
+    @mean = @numbers.mean
 
-    @mean = "Replace this string with your answer."
+    @variance = @numbers.variance
 
-    @variance = "Replace this string with your answer."
+    @standard_deviation = @numbers.standard_deviation
 
-    @standard_deviation = "Replace this string with your answer."
-
-    @mode = "Replace this string with your answer."
+    @mode = @numbers.mode
 
     # ================================================================================
     # Your code goes above.

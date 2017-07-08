@@ -93,6 +93,7 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.3)
+    descriptive_statistics (2.5.1)
     diff-lcs (1.3)
     dotenv (2.2.1)
     dotenv-rails (2.2.1)
@@ -271,6 +272,7 @@ DEPENDENCIES
   byebug
   capybara
   chronic
+  descriptive_statistics
   dotenv-rails
   factory_girl_rails
   firstdraft_generators
