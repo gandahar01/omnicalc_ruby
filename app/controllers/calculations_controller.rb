@@ -68,11 +68,11 @@ class CalculationsController < ApplicationController
     # ================================================================================
 
     @seconds = @seconds_diff
-    @minutes = (@seconds_diff / 60)
-    @hours = (@seconds_diff / 3600)
-    @days = (@seconds_diff / 86400)
-    @weeks = (@seconds_diff / 604800)
-    @weeks = (@seconds_diff / 31449600)
+    @minutes = (@seconds_diff.to_f / 60)
+    @hours = (@seconds_diff.to_f / 3600)
+    @days = (@seconds_diff.to_f / 86400)
+    @weeks = (@seconds_diff.to_f / 604800)
+    @years = (@seconds_diff.to_f / 31449600)
 
     # ================================================================================
     # Your code goes above.
